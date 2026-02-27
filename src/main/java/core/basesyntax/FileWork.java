@@ -10,7 +10,7 @@ import java.util.List;
 public class FileWork {
     public List<String> readFromFile(String fileName) throws IOException {
         if (fileName.length() == 0 || fileName == null) {
-            throw new NullPointerException("No file path");
+            return List.of(new String[0]);
         }
 
         String s = Files.readString(Paths.get(fileName));
@@ -24,7 +24,6 @@ public class FileWork {
             }
         }
         Collections.sort(result);
-        result.toArray(new String[0]);
         return result;
     }
 }
