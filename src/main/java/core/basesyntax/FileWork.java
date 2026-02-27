@@ -10,7 +10,7 @@ import java.util.List;
 public class FileWork {
     public List<String> readFromFile(String fileName) throws IOException {
         if (fileName.length() == 0 || fileName == null) {
-            return List.of(new String[0]);
+            return List.of();
         }
 
         String s = Files.readString(Paths.get(fileName));
