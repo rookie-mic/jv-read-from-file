@@ -1,15 +1,20 @@
 package core.basesyntax;
 
-import java.util.ArrayList;
-import java.util.Arrays;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.*;
 import java.util.Collections;
-import java.util.List;
 
 public class FileWork {
-    public List<String> readFromFile(String fileName) {
-        if (fileName.isEmpty()) return new ArrayList<>();
+    public List<String> readFromFile(String fileName) throws IOException {
+        if (fileName.length() == 0 || fileName == null) {
+            throw new NullPointerException("No file path");
+        }
 
-        String[] splitted = fileName.split("\\W+");
+        String s = Files.readString(Paths.get(fileName));
+
+        String[] splitted = s.split("\\W+");
         List<String> result = new ArrayList<>();
 
         for (int i = 0; i < splitted.length; i++) {
@@ -18,6 +23,7 @@ public class FileWork {
                 result.add(name);
             }
         }
+        Collections.sort(result);
         return result;
     }
 }
