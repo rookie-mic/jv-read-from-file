@@ -8,9 +8,9 @@ import java.util.Collections;
 import java.util.List;
 
 public class FileWork {
-    public List<String> readFromFile(String fileName) throws IOException {
+    public String[] readFromFile(String fileName) throws IOException {
         if (fileName.length() == 0 || fileName == null) {
-            return List.of();
+            return new String[0];
         }
 
         String s = Files.readString(Paths.get(fileName));
@@ -24,7 +24,7 @@ public class FileWork {
             }
         }
         Collections.sort(result);
-        return result;
+        return result.toArray(new String[0]);
     }
 }
 
