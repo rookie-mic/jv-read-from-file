@@ -5,7 +5,6 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.*;
 import java.util.Collections;
-
 public class FileWork {
     public List<String> readFromFile(String fileName) throws IOException {
         if (fileName.length() == 0 || fileName == null) {
