@@ -12,7 +12,6 @@ public class FileWork {
         }
 
         String s = Files.readString(Paths.get(fileName));
-
         String[] splitted = s.split("\\W+");
         List<String> result = new ArrayList<>();
 
@@ -23,6 +22,7 @@ public class FileWork {
             }
         }
         Collections.sort(result);
+        result.toArray(new String[0]);
         return result;
     }
 }
